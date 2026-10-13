@@ -59,7 +59,9 @@ export const TestimonialsSection: React.FC = () => {
                 src={imgUrl}
                 alt={`Depoimento de aluno ${(index % testimonialImages.length) + 1}`}
                 className="w-full h-auto object-cover block select-none pointer-events-none"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 draggable={false}
               />
             </div>

@@ -73,7 +73,9 @@ export const BonusSection: React.FC<BonusSectionProps> = ({ onCtaClick }) => {
                     src={bonus.imageUrl}
                     alt={bonus.title}
                     className="w-full h-full object-contain p-2"
-                    loading="lazy"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                   <span className="absolute top-2.5 left-2.5 bg-emerald-600/95 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full shadow-xs uppercase tracking-wider flex items-center gap-1">
                     <Sparkles className="w-3 h-3" />
@@ -111,7 +113,9 @@ export const BonusSection: React.FC<BonusSectionProps> = ({ onCtaClick }) => {
                       src={bonus.imageUrl}
                       alt={bonus.title}
                       className="w-full h-full object-contain p-2"
-                      loading="lazy"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
                     />
                     <span className="absolute top-2.5 left-2.5 bg-emerald-600/95 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full shadow-xs uppercase tracking-wider flex items-center gap-1">
                       <Sparkles className="w-3 h-3" />

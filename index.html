@@ -9,13 +9,89 @@
     <meta property="og:description" content="+250 Materiais Práticos de Biomedicina para Dominar Análises Clínicas em Um Só Lugar com Acesso Vitalício." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Compatibilidade com extensões e iframes de navegador para window.fetch -->
+    <script>
+      try {
+        let _nativeFetch = window.fetch;
+        Object.defineProperty(window, 'fetch', {
+          get: function() {
+            return _nativeFetch;
+          },
+          set: function(fn) {
+            _nativeFetch = fn;
+          },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (err) {}
+
+      // Suprimir erros de extensões de terceiros que tentam injetar scripts no iframe
+      window.addEventListener('error', function(event) {
+        if (event && event.filename && event.filename.includes('chrome-extension://')) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      });
+    </script>
+
+    <!-- Prioridade Máxima de Conexão com o Servidor de Imagens -->
+    <link rel="preconnect" href="https://i.imgur.com" crossorigin />
+    <link rel="dns-prefetch" href="https://i.imgur.com" />
+    <link rel="preload" as="image" href="https://i.imgur.com/vKHa4r9.png" fetchpriority="high" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Script de Pré-carregamento Imediato de Todas as Imagens da Página -->
+    <script>
+      (function() {
+        const allPageImages = [
+          'https://i.imgur.com/vKHa4r9.png',
+          'https://i.imgur.com/WG8Pu9N.jpeg',
+          'https://i.imgur.com/V03TPDn.jpeg',
+          'https://i.imgur.com/zuXfxWB.jpeg',
+          'https://i.imgur.com/YjspU12.jpeg',
+          'https://i.imgur.com/g1FpDjW.jpeg',
+          'https://i.imgur.com/kCTDynX.jpeg',
+          'https://i.imgur.com/0f5l1Di.jpeg',
+          'https://i.imgur.com/zFTXm1f.jpeg',
+          'https://i.imgur.com/MXEHcx5.jpeg',
+          'https://i.imgur.com/UsNywsz.jpeg',
+          'https://i.imgur.com/PYyBEEH.jpeg',
+          'https://i.imgur.com/HIbyLPj.jpeg',
+          'https://i.imgur.com/c8kPl0u.jpeg',
+          'https://i.imgur.com/10lrWAc.jpeg',
+          'https://i.imgur.com/d3slkQg.jpeg',
+          'https://i.imgur.com/tDI7TxX.jpeg',
+          'https://i.imgur.com/NO9gjQa.jpeg',
+          'https://i.imgur.com/6Cff7LW.jpeg',
+          'https://i.imgur.com/WVpdD3e.jpeg',
+          'https://i.imgur.com/I5kX1bR.jpeg',
+          'https://i.imgur.com/Q428yyR.jpeg',
+          'https://i.imgur.com/C6K8ghA.jpeg',
+          'https://i.imgur.com/kYrwNaa.jpeg',
+          'https://i.imgur.com/ORO4vhm.jpeg',
+          'https://i.imgur.com/T3caeAj.jpeg',
+          'https://i.imgur.com/7L9jA3N.jpeg',
+          'https://i.imgur.com/87pPT7a.jpeg',
+          'https://i.imgur.com/las4uON.jpeg',
+          'https://i.imgur.com/yvQjTCN.jpeg',
+          'https://i.imgur.com/6Ex2Bxi.jpeg',
+          'https://i.imgur.com/Z7zVL2k.jpeg'
+        ];
+        allPageImages.forEach(function(url) {
+          const img = new Image();
+          img.fetchPriority = 'high';
+          img.decoding = 'async';
+          img.src = url;
+        });
+      })();
+    </script>
   </head>
   <body class="bg-[#F8FAFC] text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

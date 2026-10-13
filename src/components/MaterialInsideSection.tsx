@@ -65,7 +65,9 @@ export const MaterialInsideSection: React.FC<MaterialInsideSectionProps> = ({ on
                 src={imgUrl}
                 alt={`Material demonstrativo ${(index % leftImages.length) + 1}`}
                 className="w-full h-auto object-cover block select-none pointer-events-none"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 draggable={false}
               />
             </div>
@@ -89,7 +91,9 @@ export const MaterialInsideSection: React.FC<MaterialInsideSectionProps> = ({ on
                 src={imgUrl}
                 alt={`Material demonstrativo ${(index % rightImages.length) + 1}`}
                 className="w-full h-auto object-cover block select-none pointer-events-none"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 draggable={false}
               />
             </div>

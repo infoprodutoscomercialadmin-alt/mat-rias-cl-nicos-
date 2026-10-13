@@ -35,6 +35,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onCtaClick }) => {
               alt="Mockup dos +250 Materiais Práticos de Biomedicina e Análises Clínicas"
               className="w-full h-auto max-h-[540px] object-contain rounded-2xl"
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>
