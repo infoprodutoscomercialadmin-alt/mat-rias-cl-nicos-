@@ -1,0 +1,6 @@
+{
+  "name": "Estante de Análises Clínicas - Página de Vendas",
+  "description": "+250 Materiais Práticos de Biomedicina para Dominar Análises Clínicas em Um Só Lugar com Acesso Vitalício.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
