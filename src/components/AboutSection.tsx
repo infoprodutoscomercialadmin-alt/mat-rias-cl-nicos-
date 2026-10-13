@@ -1,21 +1,21 @@
 import React from 'react';
-import { Sparkles, Microscope, GraduationCap, HeartHandshake } from 'lucide-react';
-import { ImagePlaceholder } from './ImagePlaceholder';
+import { Sparkles, Microscope, GraduationCap } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-slate-50/60 border-t border-slate-100">
       <div className="max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-          {/* Photo Placeholder Column */}
+          {/* Photo Column */}
           <div className="md:col-span-5 flex justify-center">
-            <div className="w-full max-w-sm bg-white p-3 rounded-3xl border border-slate-200/90 shadow-md">
-              <ImagePlaceholder
-                title="Foto de Amanda Ribeiro"
-                subtitle="Inserir foto profissional (Proporção ~4:5)"
-                aspectRatio="aspect-[4/5]"
-                minHeight="min-h-[340px]"
-                tag="QUEM SOU EU"
+            <div className="w-full max-w-md bg-white p-2.5 sm:p-3 rounded-3xl border border-slate-200/90 shadow-md">
+              <img
+                src="https://i.imgur.com/2jOy6rc.jpeg"
+                alt="Foto de Amanda Ribeiro"
+                className="w-full h-auto rounded-2xl block"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
