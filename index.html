@@ -23,10 +23,6 @@
       fbq('init', '1723901715823233');
       fbq('track', 'PageView');
     </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1723901715823233&ev=PageView&noscript=1" />
-    </noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- Scripts de Rastreamento UTMify -->
@@ -115,6 +111,11 @@
     </script>
   </head>
   <body class="bg-[#F8FAFC] text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+    <!-- Meta Pixel noscript fallback -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1723901715823233&ev=PageView&noscript=1" alt="" />
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
