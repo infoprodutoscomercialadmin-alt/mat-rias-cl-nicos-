@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NoticeBanner } from './components/NoticeBanner';
 import { HeroSection } from './components/HeroSection';
 import { MaterialInsideSection } from './components/MaterialInsideSection';
@@ -13,17 +13,16 @@ import { FaqSection } from './components/FaqSection';
 import { GuaranteeSection } from './components/GuaranteeSection';
 import { Footer } from './components/Footer';
 import { UpsellModal } from './components/UpsellModal';
-import { CheckoutFeedbackModal } from './components/CheckoutFeedbackModal';
+
+// Links Oficiais de Checkout Zuptos
+const CHECKOUT_URLS = {
+  complete: 'https://app.zuptos.com.br/checkout/10cbb509bde9bf13',
+  popup: 'https://app.zuptos.com.br/checkout/f1b3420a1d383e74',
+  basic: 'https://app.zuptos.com.br/checkout/a1a5a3427164bc4c',
+};
 
 export default function App() {
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
-  const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<{
-    name: string;
-    price: string;
-    description: string;
-    isSpecialOffer?: boolean;
-  } | null>(null);
 
   const scrollToPricing = () => {
     const pricingElement = document.getElementById('precos');
@@ -32,39 +31,26 @@ export default function App() {
     }
   };
 
+  // Ao clicar no básico de R$ 10,00, abre o pop-up com a oferta exclusiva
   const handleSelectBasic = () => {
-    // Requisito 6: No botão do Pacote Básico de R$ 10,00, abre o pop-up com a oferta de R$ 17,90
     setIsUpsellOpen(true);
   };
 
+  // Redirecionamento direto para o Plano Completo (R$ 27,90)
   const handleSelectComplete = () => {
-    setSelectedPlan({
-      name: 'Pacote Completo - Estante de Análises Clínicas',
-      price: 'R$ 27,90',
-      description: 'Acesso Vitalício completo a +250 materiais + Todos os 5 Bônus exclusivos.',
-    });
-    setCheckoutModalOpen(true);
+    window.location.href = CHECKOUT_URLS.complete;
   };
 
+  // Redirecionamento quando aceita a oferta exclusiva do Pop-up (R$ 17,90)
   const handleAcceptUpsell = () => {
     setIsUpsellOpen(false);
-    setSelectedPlan({
-      name: 'Pacote Completo (Oferta Especial)',
-      price: 'R$ 17,90',
-      description: 'Acesso Vitalício completo com desconto especial de R$ 10,00!',
-      isSpecialOffer: true,
-    });
-    setCheckoutModalOpen(true);
+    window.location.href = CHECKOUT_URLS.popup;
   };
 
+  // Redirecionamento quando o usuário insiste em ficar com o Plano Básico (R$ 10,00)
   const handleContinueBasic = () => {
     setIsUpsellOpen(false);
-    setSelectedPlan({
-      name: 'Pacote Básico',
-      price: 'R$ 10,00',
-      description: 'Acesso parcial aos materiais introdutórios de análises clínicas.',
-    });
-    setCheckoutModalOpen(true);
+    window.location.href = CHECKOUT_URLS.basic;
   };
 
   return (
@@ -73,7 +59,7 @@ export default function App() {
       <NoticeBanner />
 
       <main className="flex-1">
-        {/* 2. Hero Section com Headline Atualizada e Placeholder Central */}
+        {/* 2. Hero Section com Headline e Mockup */}
         <HeroSection onCtaClick={scrollToPricing} />
 
         {/* 3. Veja o material por dentro (Dois carrosséis infinitos: esquerda e direita) */}
@@ -85,22 +71,22 @@ export default function App() {
         {/* 5. Por que a Estante funciona (4 pilares) */}
         <WhyItWorksSection />
 
-        {/* 6. Depoimentos (Carrossel infinito de prints WhatsApp estilo celular) */}
+        {/* 6. Depoimentos (Carrossel infinito de prints reais) */}
         <TestimonialsSection />
 
-        {/* 7. Ideal para você que... (Checklist de dores e desejos) */}
+        {/* 7. Ideal para você que... (Checklist) */}
         <IdealForYouSection onCtaClick={scrollToPricing} />
 
         {/* 8. Somente hoje você recebe bônus exclusivos (5 bônus) */}
         <BonusSection onCtaClick={scrollToPricing} />
 
-        {/* 9. Escolha Seu Pacote (Preços: Básico R$ 10 e Completo R$ 27,90) */}
+        {/* 9. Escolha Seu Pacote (Links de Checkout integrados) */}
         <PricingSection
           onSelectBasic={handleSelectBasic}
           onSelectComplete={handleSelectComplete}
         />
 
-        {/* 10. Quem sou eu (Amanda Ribeiro + Foto vazia) */}
+        {/* 10. Quem sou eu (Amanda Ribeiro) */}
         <AboutSection />
 
         {/* 11. Perguntas Frequentes (FAQ Accordion) */}
@@ -119,13 +105,6 @@ export default function App() {
         onClose={() => setIsUpsellOpen(false)}
         onAcceptSpecialOffer={handleAcceptUpsell}
         onContinueBasic={handleContinueBasic}
-      />
-
-      {/* Feedback/Checkout Redirection Modal */}
-      <CheckoutFeedbackModal
-        isOpen={checkoutModalOpen}
-        onClose={() => setCheckoutModalOpen(false)}
-        selectedPlan={selectedPlan}
       />
     </div>
   );
