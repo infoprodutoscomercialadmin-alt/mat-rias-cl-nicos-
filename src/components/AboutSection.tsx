@@ -10,8 +10,8 @@ export const AboutSection: React.FC = () => {
           <div className="md:col-span-5 flex justify-center">
             <div className="w-full max-w-md bg-white p-2.5 sm:p-3 rounded-3xl border border-slate-200/90 shadow-md">
               <img
-                src="https://i.imgur.com/2jOy6rc.jpeg"
-                alt="Foto de Amanda Ribeiro"
+                src="https://i.imgur.com/SXPCa87.jpeg"
+                alt="Foto de Lívia Belmonte"
                 className="w-full h-auto rounded-2xl block"
                 loading="eager"
                 fetchPriority="high"
@@ -27,7 +27,7 @@ export const AboutSection: React.FC = () => {
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Olá, eu sou <span className="text-emerald-600">Amanda Ribeiro</span>
+              Olá, eu sou <span className="text-emerald-600">Lívia Belmonte</span>
             </h2>
 
             <div className="mt-5 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">

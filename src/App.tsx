@@ -86,7 +86,7 @@ export default function App() {
           onSelectComplete={handleSelectComplete}
         />
 
-        {/* 10. Quem sou eu (Amanda Ribeiro) */}
+        {/* 10. Quem sou eu (Lívia Belmonte) */}
         <AboutSection />
 
         {/* 11. Perguntas Frequentes (FAQ Accordion) */}
